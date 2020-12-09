@@ -43,6 +43,10 @@ public class TakeAwayDiscount implements TakeAwayBill {
         if (itemsOrdered.size() > 30) {
             throw new TakeAwayBillException("La lista supera il massimo di 30 elementi");
         }
+        //commissione
+        if (total < 10) {
+            total += 0.50;
+        }
         return total;
     }
 } 

@@ -5,10 +5,11 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
+
 import it.unipd.tos.model.MenuItem;
 import it.unipd.tos.model.User;
-import it.unipd.tos.business.TotalBill;
 import it.unipd.tos.business.exception.TakeAwayBillException;
+
 public class TakeAwayTest {
 	
 	TakeAwayDiscount bill;
@@ -66,12 +67,18 @@ public class TakeAwayTest {
 		total = bill.getOrderPrice(list, user);
 		assertEquals(54,total,Diff);
 	}
-
 	@Test(expected = TakeAwayBillException.class) 
 	public void max30Test() throws TakeAwayBillException {
 		for(int i=0; i<32; i++) {
 			list.add(new MenuItem(MenuItem.type.Gelato,"BananaSplit",5.00));
 		}
 		total = bill.getOrderPrice(list,user);
+	}
+
+	@Test
+	public void plus050Test() throws TakeAwayBillException {
+		list.add(new MenuItem(MenuItem.type.Gelato,"BananaSplit",5.00));
+		total = bill.getOrderPrice(list, user);
+		assertEquals(5.50,total,Diff);
 	}
 } 
