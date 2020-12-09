@@ -9,10 +9,10 @@ public class User {
     private String surname;
     private int age;
 
-    public User(String nome, String cognome, int eta) {
-        this.name = nome;
-        this.surname = cognome;
-        this.age = eta;
+    public User(String name, String surname, int age) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
     }
 
     public String getName() {

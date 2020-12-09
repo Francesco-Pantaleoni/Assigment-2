@@ -7,35 +7,35 @@ import org.junit.Test;
 
 public class MenuItemTest {
 
-	private MenuItem item;
+	private MenuItem menuitem;
 	private static final double Diff = 1e-3;
 
 	@Before
 	public void setup() {
-		item = new MenuItem(MenuItem.type.Budino,"Cioccolato",4.00);
+		menuitem = new MenuItem(MenuItem.type.Budino,"Cameo",3.50);
 	}
 
 	@Test
-    public void getItemTest() {
-        assertEquals(MenuItem.type.Budino, item.getItem());
+    public void getItemTypeTest() {
+        assertEquals(MenuItem.type.Budino, menuitem.getItemType());
     }
 
 	@Test
     public void getNameTest() {
-        assertEquals("Cioccolato", item.getName());
+        assertEquals("Cameo", menuitem.getName());
     }
 
     @Test
     public void getPriceTest() {
-        assertEquals(4.00, item.getPrice(),Diff);
+        assertEquals(3.50, menuitem.getPrice(),Diff);
     }
 
     @Test
     public void negativePriceTest() {
-    	boolean neg = true;
-		if(item.getPrice()<0)
-			neg = false;
-		assertEquals(true, neg);
+    	boolean b = true;
+		if(menuitem.getPrice()<0)
+			b = false;
+		assertEquals(true, b);
     }
 
-}
+} 

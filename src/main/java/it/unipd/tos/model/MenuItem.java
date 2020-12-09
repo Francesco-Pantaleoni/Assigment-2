@@ -5,20 +5,24 @@ package it.unipd.tos.model;
 
 public class MenuItem {
 
-    public enum type {Gelato,Budino,Bevanda}
+    public enum type {
+        Gelato,
+        Budino,
+        Bevanda
+    }
 
-    private type item;
+    private type itemType;
     private String name;
     private double price;
 
-    public MenuItem(type itemtype, String nome, double prezzo) {
-        this.item = itemtype;
-        this.name = nome;
-        this.price = prezzo;
+    public MenuItem(type itemType, String name, double price) {
+        this.itemType = itemType;
+        this.name = name;
+        this.price = price;
     }
 
-    public type getItem() {
-        return item;
+    public type getItemType() {
+        return itemType;
     }
 
     public String getName() {
@@ -28,4 +32,4 @@ public class MenuItem {
     public double getPrice() {
         return price;
     }
-}
+} 

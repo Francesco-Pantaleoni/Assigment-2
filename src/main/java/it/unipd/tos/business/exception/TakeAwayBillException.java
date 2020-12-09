@@ -5,13 +5,13 @@ package it.unipd.tos.business.exception;
 
 public class TakeAwayBillException extends Exception {
 
-    private String mex;
+    private String message;
 
-    public TakeAwayBillException(String err) {
-        this.mex = err;
+    public TakeAwayBillException(String error) {
+        this.message = error;
     }
 
     public String getMessage() {
-        return this.mex;
+        return this.message;
     }
 } 

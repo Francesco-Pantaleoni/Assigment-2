@@ -7,33 +7,33 @@ import org.junit.Test;
 
 public class UserTest {
 
-	private User us;
+	private User user;
 
 	@Before
 	public void setup() {
-		us = new User("Francesco","Pantaleoni",21);
+		user = new User("Francesco","Pantaleoni",21);
 	}
 
 	@Test
 	public void getNameTest() {
-		assertEquals("Francesco", us.getName());
+		assertEquals("Francesco", user.getName());
 	}
 
 	@Test
 	public void getSurnameTest() {
-		assertEquals("Pantaleoni", us.getSurname());
+		assertEquals("Pantaleoni", user.getSurname());
 	}
 
 	@Test
 	public void getAgeTest() {
-		assertEquals(21, us.getAge());
+		assertEquals(21, user.getAge());
 	}
 
 	@Test
 	public void invalidAgeTest() {
-		boolean age = true;
-		if(us.getAge()<0)
-			age = false;
-		assertEquals(true, age);
+		boolean b = true;
+		if(user.getAge()<0)
+			b = false;
+		assertEquals(true, b);
 	}
-}
+} 
