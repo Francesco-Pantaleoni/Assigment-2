@@ -12,7 +12,6 @@ public class TakeAwayDiscount implements TakeAwayBill {
         int ice = 0;
         MenuItem cheapestIce = null;
         double IcePud = 0.0;
-
         if (itemsOrdered == null) {
             throw new TakeAwayBillException("La lista è vuota");
         }
@@ -23,7 +22,6 @@ public class TakeAwayDiscount implements TakeAwayBill {
             total += i.getPrice();
             if (i.getItemType() == MenuItem.type.Gelato) {
                 ice++;
-                
                 IcePud += i.getPrice();
                 if ((cheapestIce == null) || (cheapestIce.getPrice() > i.getPrice())) {
                     cheapestIce = i;
@@ -34,7 +32,6 @@ public class TakeAwayDiscount implements TakeAwayBill {
             }
         }
         //sconto 50
-       
         if (ice > 5) {
             total -= cheapestIce.getPrice() * 0.5;
         }
@@ -42,6 +39,10 @@ public class TakeAwayDiscount implements TakeAwayBill {
         if (IcePud > 50) {
             total -= total * 0.1;
         }
+        //limite30
+        if (itemsOrdered.size() > 30) {
+            throw new TakeAwayBillException("La lista supera il massimo di 30 elementi");
+        }
         return total;
     }
-}
+} 
